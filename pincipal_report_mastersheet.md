@@ -6,13 +6,13 @@ This documents the changes made to replicate and fix the Master Sheet feature un
 
 ```text
 Report 2.php
--> application/controllers/principal/Report.php
+-> -controllers/principal/Report.php
 
 master_sheet 2.php
--> application/views/principal/reports/master_sheet.php
+-> -views/principal/reports/master_sheet.php
 
 grade_master_sheet.php
--> application/views/principal/reports/grade_master_sheet.php
+-> -views/principal/reports/grade_master_sheet.php
 ```
 
 Teacher files were used only as reference:
@@ -543,20 +543,20 @@ Upload these after changes:
 
 ```text
 Report 2.php
--> application/controllers/principal/Report.php
+-> controllers/principal/Report.php
 
 master_sheet 2.php
--> application/views/principal/reports/master_sheet.php
+-> views/principal/reports/master_sheet.php
 
 grade_master_sheet.php
--> application/views/principal/reports/grade_master_sheet.php
+-> views/principal/reports/grade_master_sheet.php
 ```
 
 Do not overwrite teacher files:
 
 ```text
-application/controllers/teacher/Report.php
-application/views/teacher/reports/master_sheet.php
+controllers/teacher/Report.php
+views/teacher/reports/master_sheet.php
 ```
 
 ## Verification Done
