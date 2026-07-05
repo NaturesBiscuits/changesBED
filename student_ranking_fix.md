@@ -7,14 +7,14 @@ This documents the Student Ranking fixes made for the Principal report files.
 Local files:
 
 ```text
-Report 2.php
+Report.php
 student_ranking.php
 ```
 
 Upload targets:
 
 ```text
-Report 2.php
+Report.php
 -> application/controllers/principal/Report.php
 
 student_ranking.php
@@ -47,7 +47,7 @@ from a non-array value, PHP reported an illegal string offset / undefined offset
 File:
 
 ```text
-Report 2.php
+Report.php
 ```
 
 Code area:
@@ -61,19 +61,19 @@ Important flow:
 
 ```php
 $studentlist = $this->student_model->searchByClassSection($class, $section);
-$studentranking = $this->grade_model->getStudentAverage( $studentlist, $quarter, $semester, $combine_category );
-$getgraderanking = $this->grade_model->getgraderanking( $studentranking );
+$studentranking = $this->grade_model->getStudentAverage_final( $studentlist, $quarter, $semester, $combine_category );
+$getgraderanking = $this->grade_model->getgraderanking_final( $studentranking );
 $data['studentlist'] = $getgraderanking;
 ```
 
 What this does:
 
 - Gets students by selected Grade/Section.
-- Computes student averages using `grade_model->getStudentAverage(...)`.
-- Ranks the students using `grade_model->getgraderanking(...)`.
+- Computes student averages using `grade_model->getStudentAverage_final(...)`.
+- Ranks the students using `grade_model->getgraderanking_final(...)`.
 - Sends the ranking result to the view as `$studentlist`.
 
-The controller flow was kept, but the view was made safer because the ranking result can contain unexpected/non-student entries.
+The controller now uses the newer final ranking calculation path, and the view was made safer because the ranking result can contain unexpected/non-student entries.
 
 ## View Code Area
 
@@ -228,21 +228,21 @@ getStudentAverage_final(...)
 getgraderanking_final(...)
 ```
 
-This is in `Report 2.php`, inside `student_ranking()`. It keeps Term 1, Term 2, Term 3, and Final Grade ranking on the newer calculation path used by the principal reports.
+This is in `Report.php`, inside `student_ranking()`. It keeps Term 1, Term 2, Term 3, and Final Grade ranking on the newer calculation path used by the principal reports.
 
 ## 3-Term Student Ranking Update
 
 Files changed:
 
 ```text
-Report 2.php
+Report.php
 student_ranking.php
 ```
 
 Code areas:
 
 ```text
-Report 2.php, student_ranking()
+Report.php, student_ranking()
 student_ranking.php, term dropdown
 student_ranking.php, regular final subject-grade loop
 ```
@@ -259,7 +259,7 @@ What changed:
 Upload these files to apply the Student Ranking fix:
 
 ```text
-Report 2.php -> application/controllers/principal/Report.php
+Report.php -> application/controllers/principal/Report.php
 student_ranking.php -> application/views/principal/reports/student_ranking.php
 ```
 
