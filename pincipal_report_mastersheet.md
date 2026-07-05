@@ -5,10 +5,10 @@ This documents the changes made to replicate and fix the Master Sheet feature un
 ## Files To Upload
 
 ```text
-Report 2.php
+Report.php
 -> -controllers/principal/Report.php
 
-master_sheet 2.php
+master_sheet.php
 -> -views/principal/reports/master_sheet.php
 
 grade_master_sheet.php
@@ -27,7 +27,7 @@ master_sheet.php
 Local file:
 
 ```text
-Report 2.php
+Report.php
 ```
 
 ### 1. Master Sheet Route
@@ -35,7 +35,7 @@ Report 2.php
 Code area:
 
 ```text
-Report 2.php around line 5779
+Report.php around line 5779
 function master_sheet()
 ```
 
@@ -57,7 +57,7 @@ $this->load->view('principal/reports/master_sheet', $data);
 Code area:
 
 ```text
-Report 2.php around lines 5795-5807
+Report.php around lines 5795-5807
 ```
 
 Added/used:
@@ -84,7 +84,7 @@ Purpose:
 Code area:
 
 ```text
-Report 2.php around line 5810
+Report.php around line 5810
 ```
 
 Changed validation label from Quarter to Term:
@@ -102,7 +102,7 @@ Purpose:
 Code area:
 
 ```text
-Report 2.php around lines 5818-5822
+Report.php around lines 5818-5822
 ```
 
 Added direct PDF generation:
@@ -124,7 +124,7 @@ Purpose:
 Code area:
 
 ```text
-Report 2.php around line 5832
+Report.php around line 5832
 ```
 
 Changed to match teacher behavior:
@@ -143,7 +143,7 @@ Purpose:
 Code area:
 
 ```text
-Report 2.php around line 5859
+Report.php around line 5859
 public function getSectionsByClass()
 ```
 
@@ -155,7 +155,7 @@ Purpose:
 Used by:
 
 ```text
-master_sheet 2.php around lines 574 and 612
+master_sheet.php around lines 574 and 612
 principal/report/getSectionsByClass
 ```
 
@@ -164,7 +164,7 @@ principal/report/getSectionsByClass
 Code area:
 
 ```text
-Report 2.php around line 5872
+Report.php around line 5872
 public function allowStrand()
 ```
 
@@ -176,7 +176,7 @@ Purpose:
 Used by:
 
 ```text
-master_sheet 2.php around lines 591 and 625
+master_sheet.php around lines 591 and 625
 principal/report/allowStrand
 ```
 
@@ -185,7 +185,7 @@ principal/report/allowStrand
 Code area:
 
 ```text
-Report 2.php around line 3571
+Report.php around line 3571
 public function print_master_sheet(...)
 ```
 
@@ -205,7 +205,7 @@ Purpose:
 Code area:
 
 ```text
-Report 2.php before loading template/master_sheet
+Report.php before loading template/master_sheet
 ```
 
 Added:
@@ -228,8 +228,8 @@ Filename: template/master_sheet.php
 Code areas:
 
 ```text
-Report 2.php around lines 3765 and 4286
-Report 2.php around lines 4010 and 4482
+Report.php around lines 3765 and 4286
+Report.php around lines 4010 and 4482
 ```
 
 Male names:
@@ -255,7 +255,7 @@ Purpose:
 Code area:
 
 ```text
-Report 2.php around line 4659
+Report.php around line 4659
 ```
 
 Changed bottom PDF section from:
@@ -289,7 +289,7 @@ $teacher_details = $this->classsection_model->get_teacher_advisory(...);
 Code area:
 
 ```text
-Report 2.php around line 3554
+Report.php around line 3554
 private function getMasterSheetConductValue(...)
 ```
 
@@ -314,8 +314,8 @@ $this->conductimportbatchdetail_model->getAllDetailsConductByStudentPerQuarter(.
 Replaced Conduct print blocks around:
 
 ```text
-Report 2.php around lines 3918, 4162, 4412, 4608
-Report 2.php around lines 6234, 6478, 6728, 6924
+Report.php around lines 3918, 4162, 4412, 4608
+Report.php around lines 6234, 6478, 6728, 6924
 ```
 
 ### 13. Numeric Grade Output
@@ -323,7 +323,7 @@ Report 2.php around lines 6234, 6478, 6728, 6924
 Code areas:
 
 ```text
-Report 2.php master sheet PDF output blocks
+Report.php master sheet PDF output blocks
 grade_master_sheet.php master sheet view output blocks
 ```
 
@@ -349,14 +349,14 @@ O, FS
 
 Note:
 
-- Other report card related letter-grade calls remain in `Report 2.php`; only Master Sheet output was changed.
+- Other report card related letter-grade calls remain in `Report.php`; only Master Sheet output was changed.
 
 ## View: Principal master_sheet.php
 
 Local file:
 
 ```text
-master_sheet 2.php
+master_sheet.php
 ```
 
 ### 1. Principal Form Action
@@ -364,7 +364,7 @@ master_sheet 2.php
 Code areas:
 
 ```text
-master_sheet 2.php around lines 24 and 126
+master_sheet.php around lines 24 and 126
 ```
 
 Uses:
@@ -383,7 +383,7 @@ Purpose:
 Code area:
 
 ```text
-master_sheet 2.php around line 30
+master_sheet.php around line 30
 ```
 
 Added label and dropdown:
@@ -408,7 +408,7 @@ Purpose:
 Code areas:
 
 ```text
-master_sheet 2.php around lines 47, 68, 93
+master_sheet.php around lines 47, 68, 93
 ```
 
 Visible labels:
@@ -429,7 +429,7 @@ Purpose:
 Code area:
 
 ```text
-master_sheet 2.php around lines 96-103
+master_sheet.php around lines 96-103
 ```
 
 Term 4 is skipped:
@@ -460,7 +460,7 @@ Final
 Code areas:
 
 ```text
-master_sheet 2.php around lines 574 and 612
+master_sheet.php around lines 574 and 612
 ```
 
 Uses:
@@ -479,7 +479,7 @@ Purpose:
 Code areas:
 
 ```text
-master_sheet 2.php around lines 591 and 625
+master_sheet.php around lines 591 and 625
 ```
 
 Uses:
@@ -497,7 +497,7 @@ Purpose:
 Code area:
 
 ```text
-master_sheet 2.php around lines 124-129
+master_sheet.php around lines 124-129
 ```
 
 Hidden fields include:
@@ -541,12 +541,12 @@ Purpose:
 
 Use these snippets as the concrete lines changed for the Principal Report Master Sheet upload.
 
-### Report 2.php
+### Report.php
 
 School Year support, selected session persistence, and Term validation:
 
 ```php
-// Report 2.php lines 5792-5805
+// Report.php lines 5792-5805
 $session = $this->session_model->getAllSession();
 $setting_result = $this->setting_model->get();
 $session_id = $setting_result[0]['session_id'];
@@ -564,7 +564,7 @@ $this->form_validation->set_rules('quarter', 'Term', 'trim|required|xss_clean');
 Print action now goes directly to PDF and keeps the selected School Year:
 
 ```php
-// Report 2.php lines 5818-5822
+// Report.php lines 5818-5822
 $session_id = $this->input->post('session_id');
 $this->session->set_userdata(array('grade_set_session'=>$session_id));
 if( isset($action) && $action == 'print_master_sheet'){  
@@ -576,14 +576,14 @@ if( isset($action) && $action == 'print_master_sheet'){
 Filtered subject query:
 
 ```php
-// Report 2.php line 5832
+// Report.php line 5832
 $subjectlist = $this->subject_model->getSubjctByClass( $class, true );
 ```
 
 Principal-only AJAX endpoints:
 
 ```php
-// Report 2.php lines 5859-5880
+// Report.php lines 5859-5880
 public function getSectionsByClass(){
     $class_id = $this->input->get('class_id');
     $section_list = array();
@@ -612,7 +612,7 @@ public function allowStrand(){
 Conduct helper used by print:
 
 ```php
-// Report 2.php lines 3554-3569
+// Report.php lines 3554-3569
 private function getMasterSheetConductValue( $student_id, $class_id, $section_id, $quarter, $session_id=null ){
     $student_conduct = '';
     $getConductSubject = $this->conductsession_model->getDetailByclassAndSection( $class_id, $section_id );
@@ -634,7 +634,7 @@ private function getMasterSheetConductValue( $student_id, $class_id, $section_id
 PDF function signature, selected session fallback, adviser lookup, and missing quarter variable:
 
 ```php
-// Report 2.php lines 3571-3603
+// Report.php lines 3571-3603
 public function print_master_sheet( $class_id, $section_id, $quarter, $semester_id=null, $session_id=null ){  
     $setting_result = $this->setting_model->get();
     if (empty($session_id)) {
@@ -656,7 +656,7 @@ public function print_master_sheet( $class_id, $section_id, $quarter, $semester_
 Conduct print blocks replaced with the helper. Same pattern appears around lines 3918, 4162, 4412, and 4608:
 
 ```php
-// Report 2.php lines 3918-3923
+// Report.php lines 3918-3923
 $getConductSubject = $this->getMasterSheetConductValue( $student_id, $class_id, $section_id, $quarter, $session_id );
 if( $getConductSubject ){
     echo '<td style= "border: 1px solid black; font-size: 12px;  padding-left: 6px;  padding-right: 6px;">'.$getConductSubject.'</td>';
@@ -668,17 +668,17 @@ if( $getConductSubject ){
 PDF student name color coding:
 
 ```php
-// Report 2.php lines 3765 and 4286, male rows
+// Report.php lines 3765 and 4286, male rows
 <td style= "border: 1px solid black; font-size: 12px;  padding-left: 6px;  padding-right: 6px;text-transform:uppercase;width:300px;color:#0000FF;"><?php echo $lastname.', '.$firstname.' '.$suffix.' '.$middlename; ?></td>
 
-// Report 2.php lines 4010 and 4482, female rows
+// Report.php lines 4010 and 4482, female rows
 <td style= "border: 1px solid black; font-size: 12px;  padding-left: 6px;  padding-right: 6px;text-transform:uppercase;width:300px;color:#FF00FF;"><?php echo $lastname.', '.$firstname.' '.$suffix.' '.$middlename; ?></td>
 ```
 
 PDF numeric grade output, replacing letter-grade display. Same pattern appears in the master sheet print blocks:
 
 ```php
-// Report 2.php lines 3890-3894
+// Report.php lines 3890-3894
 if( $grade_per_quarter < 75  ){
     echo '<td style= "color:red;border: 1px solid black; font-size: 12px;  padding-left: 6px;  padding-right: 6px;">'.$grade_per_quarter.'</td>';
 } else {
@@ -689,7 +689,7 @@ if( $grade_per_quarter < 75  ){
 Prepared By section:
 
 ```php
-// Report 2.php lines 4655-4676
+// Report.php lines 4655-4676
 <!-- Prepared by Section -->
 <table width="100%" style="font-family: sans-serif; font-size: 13px; margin-top: 20px;">
     <tr>
@@ -714,12 +714,12 @@ Prepared By section:
 </table>
 ```
 
-### master_sheet 2.php
+### master_sheet.php
 
 Principal form route and School Year dropdown:
 
 ```php
-// master_sheet 2.php lines 24 and 30-43
+// master_sheet.php lines 24 and 30-43
 <form id='form1' action="<?php echo site_url('principal/report/master_sheet') ?>"  method="post" accept-charset="utf-8">
 
 <label for="session_id">School Year</label>
@@ -740,7 +740,7 @@ Principal form route and School Year dropdown:
 Grade, Section, and Term labels:
 
 ```php
-// master_sheet 2.php lines 47, 68, and 93
+// master_sheet.php lines 47, 68, and 93
 <label for="class_id">Grade</label>
 <label for="section_id">Section</label>
 <label for="quarter">Term</label>
@@ -749,7 +749,7 @@ Grade, Section, and Term labels:
 Term dropdown skips Quarter 4 and shows `Final` separately:
 
 ```php
-// master_sheet 2.php lines 96-107
+// master_sheet.php lines 96-107
 <?php
     foreach ($getquarter as $key => $value) {
         if ($key == 4) {
@@ -766,7 +766,7 @@ Term dropdown skips Quarter 4 and shows `Final` separately:
 Print form now includes `session_id`:
 
 ```php
-// master_sheet 2.php lines 126-132
+// master_sheet.php lines 126-132
 <form id='form1' action="<?php echo site_url('principal/report/master_sheet') ?>"  method="post" accept-charset="utf-8">
     <input type="hidden" name="class_id" value="<?php echo $class_id; ?>">
     <input type="hidden" name="section_id" value="<?php echo $section_id; ?>"> 
@@ -779,14 +779,14 @@ Print form now includes `session_id`:
 Student report links point to principal report card routes:
 
 ```php
-// master_sheet 2.php lines 164 and 381
+// master_sheet.php lines 164 and 381
 $url = base_url().'principal/report/show_report_card/'.$student_id;
 ```
 
 AJAX calls now use principal report endpoints:
 
 ```javascript
-// master_sheet 2.php lines 574, 591, 612, and 625
+// master_sheet.php lines 574, 591, 612, and 625
 url: base_url + "principal/report/getSectionsByClass",
 url: base_url + "principal/report/allowStrand",
 url: base_url + "principal/report/getSectionsByClass",
@@ -828,10 +828,10 @@ if( $grade_per_quarter < 75 ){
 Upload these after changes:
 
 ```text
-Report 2.php
+Report.php
 -> controllers/principal/Report.php
 
-master_sheet 2.php
+master_sheet.php
 -> views/principal/reports/master_sheet.php
 
 grade_master_sheet.php
@@ -850,8 +850,8 @@ views/teacher/reports/master_sheet.php
 Syntax checks passed for edited files:
 
 ```text
-Report 2.php
-master_sheet 2.php
+Report.php
+master_sheet.php
 grade_master_sheet.php
 ```
 
