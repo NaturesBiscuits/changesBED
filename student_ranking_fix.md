@@ -206,16 +206,79 @@ After the fix:
 - Missing optional fields no longer produce PHP notices.
 - Final grades are safely formatted only when numeric.
 - Term 4 is hidden from the main term dropdown.
+- Regular final subject averages now use 3 terms instead of 4.
+- Principal Student Ranking now uses the newer final ranking calculation path for average/order.
 - The page continues to display valid student ranking rows normally.
 
 ## Notes
 
 - The teacher files were not changed for this fix.
 - The main fix was defensive rendering in the principal Student Ranking view.
-- The controller still uses the existing ranking flow:
+- The controller ranking flow was updated from the old average methods:
 
 ```php
 getStudentAverage(...)
 getgraderanking(...)
 ```
 
+to:
+
+```php
+getStudentAverage_final(...)
+getgraderanking_final(...)
+```
+
+This is in `Report 2.php`, inside `student_ranking()`. It keeps Term 1, Term 2, Term 3, and Final Grade ranking on the newer calculation path used by the principal reports.
+
+## 3-Term Student Ranking Update
+
+Files changed:
+
+```text
+Report 2.php
+student_ranking.php
+```
+
+Code areas:
+
+```text
+Report 2.php, student_ranking()
+student_ranking.php, term dropdown
+student_ranking.php, regular final subject-grade loop
+```
+
+What changed:
+
+- The principal Student Ranking form validation label was changed from `Quarter` to `Term`.
+- The dropdown now displays `Term 1`, `Term 2`, and `Term 3`; Term 4 remains hidden.
+- The regular final subject-grade loop now sets `$total_quarter = 3`, so Final Grade calculates from terms 1 to 3.
+- The controller now calls `getStudentAverage_final(...)` and `getgraderanking_final(...)` so the average and rank order use the newer ranking calculation path.
+
+## Files to Upload
+
+Upload these files to apply the Student Ranking fix:
+
+```text
+Report 2.php -> application/controllers/principal/Report.php
+student_ranking.php -> application/views/principal/reports/student_ranking.php
+```
+
+Optional documentation file:
+
+```text
+changesBED/student_ranking_fix.md
+```
+
+## Possible Extra File Needed
+
+If the displayed average or ranking order is still wrong after uploading the two files above, inspect this server file:
+
+```text
+application/models/Grade_model.php
+```
+
+Reason:
+
+- `Report.php` calls `getStudentAverage_final(...)` and `getgraderanking_final(...)`.
+- The actual formula inside those methods is stored in `Grade_model.php`.
+- That model file was not included in the local FileZilla temp files, so it could not be directly checked or edited here.
