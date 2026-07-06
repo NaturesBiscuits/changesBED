@@ -25,7 +25,7 @@ Upload targets:
 Report.php
 -> application/controllers/principal/Report.php
 
-grade_sheet 2.php
+grade_sheet.php
 -> application/views/principal/reports/grade_sheet.php
 
 header.php
