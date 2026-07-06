@@ -15,7 +15,7 @@ Principal files changed locally:
 
 ```text
 Report.php
-grade_sheet 2.php
+grade_sheet.php
 header.php
 ```
 
