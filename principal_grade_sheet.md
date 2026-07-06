@@ -7,7 +7,7 @@ This documents the changes made to link the copied Grade Sheet view under Princi
 Teacher reference files:
 
 ```text
-Report 2.php
+Report.php
 grade_sheet.php
 ```
 
@@ -250,7 +250,7 @@ $this->session->set_userdata('sub_menu', 'report/grade_sheet');
 Do not overwrite teacher files:
 
 ```text
-Report 2.php
+Report.php
 grade_sheet.php
 ```
 

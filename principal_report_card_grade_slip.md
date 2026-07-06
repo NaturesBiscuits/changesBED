@@ -7,8 +7,8 @@ This documents the changes made to the Principal Report Card tab so it follows t
 Registrar reference files:
 
 ```text
-Report 2.php
-report_card 2.php
+Report.php
+report_card.php
 students_detail.php
 ```
 
